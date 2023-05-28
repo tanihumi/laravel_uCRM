@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\InertiaTestController;
-
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +18,11 @@ use App\Http\Controllers\InertiaTestController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('items', ItemController::class)->middleware(['auth', 'verified']);
+
+
+
 
 Route::get('/inertia-test', function () {
     return Inertia::render('InertiaTest');
